@@ -51,10 +51,10 @@ for(i in 1:length(Provinces))
 # Sum occurrence true cases to get number of Fritillaria spp. per province:
 China$Num_Fritillaria = apply(Occur, 1, sum)
 library(grDevices) # start plotting:
-plot(China, col = colorRampPalette(c("white", "red"))(12)[China$Num_Fritillaria+1])
+plot(China, col = colorRampPalette(c("#FFFFFF", "#015E63"))(12)[China$Num_Fritillaria+1])
 Centroids = getSpPPolygonsLabptSlots(China) # Get centroids for each province for labelling:
 Centroids[grep("Gansu", Provinces),][1] = -181000.7 #-331143.7 # Move centroid of Gansu left a little
 Centroids[grep("Hebei", Provinces),][2] = 4197450 # 4297450 # Move centroid of Hebei down, etc...
 Centroids[grep("Shanghai", Provinces),][1] = 1626703 # 1536703
 Centroids[grep("Shanghai", Provinces),][2] = 3500745 #  3420745
-text(Centroids[,1],Centroids[,2],labels = China$Num_Fritillaria) # Labels with numbers in provinces
+text(Centroids[,1],Centroids[,2],labels = China$Num_Fritillaria, font=2, col="white") # Labels with numbers in provinces
